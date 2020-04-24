@@ -43,17 +43,17 @@ In spite of numerous   cues such as texture, shading, T-junctions, cast shadows 
 
 But similar to stereopsis in human vision system , We can calculate depth properties using sequence of moving images.Mathematical problems raised in this context can be roughly thought as result of the interplay of two fundamental and important transformations : 
 
-1. The motion of camera : Which is also called **rigid body motion** i.e Euclidean Motion , has been a classic subject in geometry, physics (especially mechanical physics), and robotics.
+1. <span style="color:#7c0983;">The motion of camera</span>  : Which is also called **rigid body motion** i.e Euclidean Motion , has been a classic subject in geometry, physics (especially mechanical physics), and robotics.
 
-2. The formation of image : Which is also called **Perspective projection** , has been a widely studied subject in projective geometry and computer graphics.
+2. <span style="color:blue;">The formation of image </span> : Which is also called **Perspective projection** , has been a widely studied subject in projective geometry and computer graphics.
+
+
+<img src="/images/cameraModel.png">
+
 
 
 
 ## Perspective Projection
-
-
-
-<img src="/images/cameraModel.png">
 
 
 

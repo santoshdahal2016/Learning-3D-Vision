@@ -56,12 +56,9 @@ But similar to stereopsis in human vision system , We can calculate depth proper
 <img src="/images/cameraModel.png">
 
 
+## Reference 
 
 
-## Perspective Projection
-
-
-
-## Prerequisite
-
-1. Linear Algebra
+1.  _An Invitation to 3D Vision_ [link](http://vision.ucla.edu/MASKS/)
+2.  Talk on 3D vision by [Dr. Ajad Chhatkuli](https://scholar.google.co.uk/citations?hl=en&user=3BHMHU4AAAAJ)
+3.  [Introduction to Computer Vision](https://classroom.udacity.com/courses/ud810/) on Udacity

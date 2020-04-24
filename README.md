@@ -28,6 +28,11 @@ We will only consider **Perspective projection** mostly while studying 3d Vision
 
 ## How human vision perceive geometrical understanding ?
 
+**Why does the chicken move its head all the time?**
+
+<img src="images/bobbing-chicken.gif">
+
+
 ```We move in order to see and see in order to move- William Gibson```
 
 The image of a scene on the left eye is different from the image on the right eye. Their “difference”, known as Da Vinci stereopsis, can be used to infer the three-dimensional structure of the scene.

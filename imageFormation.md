@@ -1,6 +1,6 @@
 # Image Formation
 
-3D Vision is the inverse problem of **image formation**.Image formation studies how objects give raise to images, 3D Vision attempts to use images to recover a description of objects in
+3D Vision is the inverse problem of **image formation**. Image formation studies how objects give raise to images, 3D Vision attempts to use images to recover a description of objects in
 space. Therefore, designing vision algorithms requires first developing a suitable model of image formation.
 
 
@@ -31,6 +31,18 @@ Let's talk about how you might make an image.So, here's an idea, let's just take
 
 
 Do we get a reasonable picture, well, and the fact that the title says image formation, bad method should give it away.
-Well, this point on top of this cartoon pine tree,well it projects, a ray of light to some point on the film.But of course  it also projects a ray of light all over the film.
+Well, this point on top of this cartoon pine tree,well it projects, a ray of light to some point on the film. But of course  it also projects a ray of light all over the film.
+
 Likewise, another point projects all over the film.So, one of the problems is that every location on the film is seeing light from all sorts of different places, there's no single, value of light that would,
-that comes from a single place in the world. So how might we fix that? 
+that comes from a single place in the world.
+ 
+_So how might we fix that ?_
+
+Let's put in a barrier, a barrier with a very small hole in it. So here we have this little, a hole, and it's called an aperture. This is called
+_Pinhole Camera Model_.
+
+<img src="images/PinholeModel.png">
+
+
+
+

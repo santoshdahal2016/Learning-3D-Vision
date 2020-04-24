@@ -30,7 +30,7 @@ We will only consider **Perspective projection** mostly while studying 3d Vision
 
 **Why does the chicken move its head all the time?**
 
-<img src="images/bobbing-chicken.gif">
+<img width="50%" src="images/bobbing-chicken.gif">
 
 
 ```We move in order to see and see in order to move- William Gibson```
@@ -41,7 +41,7 @@ Stereo is exploited by the human visual system to infer the “depth” structur
 In addition to the stereopsis , we infer our previous knowledge of the environment .
 
 
-<img src="images/humanVision.png">
+<img width="50% src="images/humanVision.png">
 
 ## Mathematical Approach
 In spite of numerous   cues such as texture, shading, T-junctions, cast shadows etc. We cannot only depends on these clues for geometrical properties and depth is necessary, We have already lost depth information in 3d to 2d projection (Image Formation).

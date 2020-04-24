@@ -25,6 +25,13 @@ photographic medium (or by the CCD sensor), so that we have:
 The values taken by the map I depend upon physical properties of the scene being viewed, such as its shape, its material reflectance properties
 and the distribution of the light sources.
 
+
+
+## Camera Model
+
+
+
+
 Let's talk about how you might make an image.So, here's an idea, let's just take a piece of film, or a sensor, and, let's just expose it to the light.
 
 <img src="images/ImageFormation.png">

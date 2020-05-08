@@ -46,10 +46,26 @@ that comes from a single place in the world.
 _So how might we fix that ?_
 
 Let's put in a barrier, a barrier with a very small hole in it. So here we have this little, a hole, and it's called an aperture. This is called
-_Pinhole Camera Model_.
-
+_Pinhole Camera Model_. 
 <img src="images/PinholeModel.png">
 
+Let's learn math behind this .....
 
 
+## Perspective Projection
 
+In Pinhole Camera Model, conceptually, all light passes through a vanishingly small pinhole placed at the origin and illuminates an image plane beneath it. 
+ 
+ <img src="images/pinHoleModel.png" width="50%">
+ 
+The images formed on the image plane follow the laws of projective geometry. When using a pinhole camera model, this geometric mapping from 3D to 2D is called as perspective projection.
+ 
+
+At first let's study about co-ordinate system being used , there are 
+
+include 
+
+1. co-ordinate system
+2. homogenous co-ordinate system
+3. prespective projection equation
+4. Internal parameter

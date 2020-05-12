@@ -73,9 +73,12 @@ At first let's study about co-ordinate system being used
  We have not consider the world co-ordinate system as we consider only one camera .
  
  
+If you watch over the  2D view right side , you can clearly see the similar triangle . The relation between
+Z and f is similar to that of between Y and y . The Final equation of the perspective projection is :
+The co-ordinate on the image plane relative to world co-ordinate is inversely proportional to distance (Z) and directly proportional to the focal length of camera .
+
+
+<img src="images/PrespectiveProjectionEqun.png"/>
+
  
  
-1. co-ordinate system
-2. homogenous co-ordinate system
-3. prespective projection equation
-4. Internal parameter

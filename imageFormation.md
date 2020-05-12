@@ -61,10 +61,20 @@ In Pinhole Camera Model, conceptually, all light passes through a vanishingly sm
 The images formed on the image plane follow the laws of projective geometry. When using a pinhole camera model, this geometric mapping from 3D to 2D is called as perspective projection.
  
 
-At first let's study about co-ordinate system being used , there are 
+At first let's study about co-ordinate system being used
 
-include 
+<img src="images/cameraCordinateSystem.png">
 
+
+ 1. Camera Co-ordinate System (Xc,Yc,Zc)
+ 2. Image Plane Co-ordinate System (x,y)
+ 3. Pixel Co-ordinate System (u,v)
+ 
+ We have not consider the world co-ordinate system as we consider only one camera .
+ 
+ 
+ 
+ 
 1. co-ordinate system
 2. homogenous co-ordinate system
 3. prespective projection equation

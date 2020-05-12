@@ -63,3 +63,4 @@ But similar to stereopsis in human vision system , We can calculate depth proper
 2.  Talk on 3D vision by [Dr. Ajad Chhatkuli](https://scholar.google.co.uk/citations?hl=en&user=3BHMHU4AAAAJ)
 3.  [Introduction to Computer Vision](https://classroom.udacity.com/courses/ud810/) on Udacity
 4.  [Computer Vision Basic](https://www.coursera.org/learn/computer-vision-basics/) on Coursera
+5.  ECSE-6969 Computer Vision for Visual Effects by Rich Radke

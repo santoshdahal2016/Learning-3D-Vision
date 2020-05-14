@@ -34,20 +34,20 @@ dx and dy denote the pixel height and width
 
 ### 1. 2D-2D : Corresponding points on two images
 
-    1. Using Pattern like chessboard :
+1. Using Pattern like chessboard :
+
+<img src="images/camera-calibration-flowchart.webp">
+
+
+2. From Stream of images :
+
+Steps:
+
+    1. Capture the images of the Rich Texture Surface from different Viewpoints
     
-    <img src="images/camera-calibration-flowchart.webp">
+    2. Use RANSAC to find the fundamental Matrix
     
-    
-    2. From Stream of images :
-    
-    Steps:
-    
-        1. Capture the images of the Rich Texture Surface from different Viewpoints
-        
-        2. Use RANSAC to find the fundamental Matrix
-        
-        2. then use SVD to get least square solution for Intrinsic parameter
+    2. then use SVD to get least square solution for Intrinsic parameter
 
 
 #### Fundamental Matrix 
@@ -59,5 +59,5 @@ Fundamental Matrix describe the epi-polar geometry , it relate co-ordinate of sa
 
 ### 2. 3D-2D : Corresponding points between 3D world and the image 
 
-    Using standard intrinsic parameter equation.
+Using standard intrinsic parameter equation.
 

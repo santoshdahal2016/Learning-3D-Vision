@@ -29,10 +29,10 @@ X0 and Y0 are the camera center.
 
 dx and dy denote the pixel height and width
 
-## Camera Calibration form Intrinsic Parameter
+## Camera Calibration for Intrinsic Parameter
 
 
-1. 2D-2D : Corresponding points on two images
+### 1. 2D-2D : Corresponding points on two images
 
     1. Using Pattern like chessboard :
     
@@ -50,14 +50,14 @@ dx and dy denote the pixel height and width
         2. then use SVD to get least square solution for Intrinsic parameter
 
 
-### Fundamental Matrix 
+#### Fundamental Matrix 
 
 Fundamental Matrix describe the epi-polar geometry , it relate co-ordinate of same 3D points on different images.
 
 
 
 
-2. 3D-2D : Corresponding points between 3D world and the image 
+### 2. 3D-2D : Corresponding points between 3D world and the image 
 
     Using standard intrinsic parameter equation.
 

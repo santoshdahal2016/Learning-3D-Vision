@@ -6,26 +6,61 @@ using namespace std;
 using namespace cv;
 
 
+class Extractor {
 
-void featureDetection(const Mat &img_1, vector<Point2f> &points) {
-
+public:
     Ptr<Feature2D> orb = ORB::create(500);
+    Ptr<DescriptorMatcher> matcher = DescriptorMatcher::create("BruteForce-Hamming");
+    Mat last_descriptor ;
+    std::vector<KeyPoint> last_keypoints;
 
-    std::vector<KeyPoint> keypoints;
+    void extract(Mat &img , vector< Point2f> &src_points ,  vector< Point2f> &dst_points){
+        std::vector<KeyPoint> keypoints;
 
-    Mat descriptors;
-    orb->detectAndCompute(img_1, Mat(), keypoints, descriptors);
+        Mat descriptors;
+        std::vector< std::vector<DMatch> > matches;
 
-    vector<Point2f> points_extracted;
+        orb->detectAndCompute(img, Mat(), keypoints, descriptors);
 
-    for( size_t i = 0; i < keypoints.size(); i++ ) {
-        points.emplace_back(keypoints[i].pt);
+        if(!last_descriptor.empty()){
+
+            matcher->knnMatch( descriptors, last_descriptor, matches, 2 );
+
+            const float ratio_thresh = 0.7f;
+
+            for (size_t i = 0; i < matches.size(); i++)
+            {
+                if (matches[i][0].distance < ratio_thresh * matches[i][1].distance)
+                {
+                    src_points.push_back(keypoints[matches[i][0].queryIdx].pt);
+                    dst_points.push_back(last_keypoints[matches[i][0].trainIdx].pt);
+                }
+            }
+
+            cout<<src_points.size()<<endl;
+            Mat F , mask;
+            F = findFundamentalMat(dst_points, src_points,RANSAC, 0.3/460, 0.99, mask);
+
+            for (int j = 0; j < mask.rows; ++j) {
+                if(mask.at<double>(j,0) == 0){
+                    src_points.erase(src_points.begin() + j);
+                    dst_points.erase(dst_points.begin() + j);
+                }
+            }
+            cout<<src_points.size()<<endl;
+
+        }
+        last_descriptor = descriptors;
+        last_keypoints =  keypoints;
     }
 
 
 
-//    goodFeaturesToTrack(img_1, points, 500, 0.09, 7, Mat(), 7, 3, 0, 0.04);
-}
+
+};
+
+
+
 
 
 
@@ -35,6 +70,8 @@ int main(int argc, char **argv) {
 
 
     Mat frame_grey;
+    Mat F, mask;
+
     VideoCapture cap("../../files/test.mp4");
 
     // Check if camera opened successfully
@@ -43,12 +80,15 @@ int main(int argc, char **argv) {
         return -1;
     }
 
+    Extractor extractor1;
 
     while(1){
 
         Mat frame;
-        vector<Point2f> points1, points2;
+        vector< cv::DMatch > goodMatches;
 
+        vector< Point2f> src_points ;
+        vector< Point2f> dst_points;
         // Capture frame-by-frame
         cap >> frame;
 
@@ -58,14 +98,26 @@ int main(int argc, char **argv) {
 
 
         cvtColor(frame, frame_grey, COLOR_BGR2GRAY);
-        featureDetection(frame_grey , points1);
+        extractor1.extract(frame_grey  , src_points ,dst_points);
 
-        for( size_t i = 0; i < points1.size(); i++ )
+        for( size_t i = 0; i < src_points.size(); i++ )
         {
+            cv::circle( frame, Point2f(int(src_points[i].x),int(src_points[i].y)), 1, Scalar(0,0,255), 3, 8, 0 );
+            cv::circle( frame, Point2f(int(dst_points[i].x),int(dst_points[i].y)), 1, Scalar(0,255,0), 3, 8, 0 );
 
-
-            cv::circle( frame, Point2f(int(points1[i].x),int(points1[i].y)), 1, Scalar(0,0,255), 3, 8, 0 );
+            cv::line(frame,Point2f(int(src_points[i].x),int(src_points[i].y)),Point2f(int(dst_points[i].x),int(dst_points[i].y)),Scalar(255,0,0),2);
         }
+
+//        if(!src_points.empty()){
+//
+//            F = findFundamentalMat(dst_points, src_points,RANSAC, 0.3/460, 0.99, mask);
+//
+//            cout<<src_points.size()<<endl;
+//            cout<<" Inlier " <<mask.size()<<endl;
+//            cout<<F<<endl;
+//        }
+
+
         // Display the resulting frame
         imshow( "Frame", frame );
 

@@ -4,3 +4,5 @@ project(Learning3DVision)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Learning3DVision main.cpp)
+
+add_subdirectory("./intrinsicParameter")

@@ -21,30 +21,30 @@ public:
         std::vector< std::vector<DMatch> > matches;
 
         orb->detectAndCompute(img, Mat(), keypoints, descriptors);
-
+        vector< Point2f> src_points1 , dst_points1;
         if(!last_descriptor.empty()){
 
             matcher->knnMatch( descriptors, last_descriptor, matches, 2 );
 
-            const float ratio_thresh = 0.7f;
+            const float ratio_thresh = 0.5f;
 
             for (size_t i = 0; i < matches.size(); i++)
             {
                 if (matches[i][0].distance < ratio_thresh * matches[i][1].distance)
                 {
-                    src_points.push_back(keypoints[matches[i][0].queryIdx].pt);
-                    dst_points.push_back(last_keypoints[matches[i][0].trainIdx].pt);
+                    src_points1.push_back(keypoints[matches[i][0].queryIdx].pt);
+                    dst_points1.push_back(last_keypoints[matches[i][0].trainIdx].pt);
                 }
             }
 
-            cout<<src_points.size()<<endl;
+            cout<<src_points1.size()<<endl;
             Mat F , mask;
-            F = findFundamentalMat(dst_points, src_points,RANSAC, 0.3/460, 0.99, mask);
+            F = findFundamentalMat(dst_points1, src_points1,RANSAC, 0.3/460, 0.99, mask);
 
             for (int j = 0; j < mask.rows; ++j) {
-                if(mask.at<double>(j,0) == 0){
-                    src_points.erase(src_points.begin() + j);
-                    dst_points.erase(dst_points.begin() + j);
+                if(mask.at<double>(j,0) != 0){
+                    src_points.push_back(src_points1.at(j));
+                    dst_points.push_back(dst_points1.at(j));
                 }
             }
             cout<<src_points.size()<<endl;

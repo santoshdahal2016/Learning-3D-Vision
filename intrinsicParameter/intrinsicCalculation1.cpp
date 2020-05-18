@@ -1,10 +1,12 @@
 #include <iostream>
 #include "opencv2/opencv.hpp"
 
+#include <Eigen/Core>
+#include <Eigen/SVD>
 
 using namespace std;
 using namespace cv;
-
+using namespace Eigen;
 
 class Extractor {
 
@@ -40,6 +42,11 @@ public:
             cout<<src_points1.size()<<endl;
             Mat F , mask;
             F = findFundamentalMat(dst_points1, src_points1,RANSAC, 0.3/460, 0.99, mask);
+
+            SVD decomp = SVD(F);
+
+            cout<<decomp.w<<endl;
+
 
             for (int j = 0; j < mask.rows; ++j) {
                 if(mask.at<double>(j,0) != 0){

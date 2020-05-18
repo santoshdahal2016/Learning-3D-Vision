@@ -13,6 +13,50 @@ to produce an estimate of the three-dimensional layout of the scene that is suff
 The geometric understanding  of the environment is required in order to move within the environment , detect , recognize and fetch the object .
 
 
+## Dissection of 3D vision
+
+The final goal of the 3D vision is to recover the Scene from the images i.e reconstruction of the environment.
+The typical pipeline i.e steps involve in the process are :
+
+3D vision Geometry broadly  divided into 4 section based on the number of  view present 
+
+####  Reconstruction from Single View 
+
+The reconstruction is based on the visible feature such as Vanishing points , Plane e.t.c
+    
+1. Camera Calibration : Intrinsic Parameter Estimation
+
+2. Feature Selection : Vanishing Points   , line at infinity e.t.c
+
+3.  3D Reconstruction
+
+
+#### Reconstruction from Two View (We will only study using two view)
+
+The reconstruction is based on the  Disparity created due to motion between two views.
+
+1. Camera Calibration : Intrinsic Parameter Estimation
+
+2. Feature Extraction : SURF , SHIFT , ORB e.t.c
+
+3. Corresponding points estimation 
+
+4.  Epi-polar Geometry :
+    
+    - Fundamental Matrix Estimation
+        
+    - Pose Estimation : Extrinsic Parameter 
+
+5.  Triangulation : 3d point Estimation
+6.  3D Reconstruction
+
+#### Reconstruction from Three View
+
+####  Reconstruction from N - View
+
+
+
+
 ## What is mean by  image for 3d vision ?
 
 In 3d vision , we define image as the projection of real world into the plane . 
